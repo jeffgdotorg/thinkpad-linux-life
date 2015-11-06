@@ -26,4 +26,6 @@ DEVID=`xinput list | egrep 'Lenovo ThinkPad Compact USB Keyboard with TrackPoint
 # Targeting the right device, we map its second (middle) button to act
 # like button zero (no such button). Problem solved.
 
-xinput set-button-map ${DEVID} 1 0 3
+if [ ! -z $DEVID ]; then
+	xinput set-button-map ${DEVID} 1 0 3
+fi
